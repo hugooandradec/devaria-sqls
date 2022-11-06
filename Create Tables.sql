@@ -1,11 +1,17 @@
 BEGIN TRANSACTION
 
+
+
 CREATE DATABASE DevariaCandies;
 
 --COMMIT
 --ROLLBACK
 
 BEGIN TRANSACTION
+
+/*
+	Criação da tabela de Clientes
+*/
 
 CREATE TABLE Cliente
 (
@@ -22,6 +28,10 @@ CREATE TABLE Cliente
 	CONSTRAINT PK_CodigoCliente PRIMARY KEY (Codigo)
 )
 
+/*
+	Criação da tabela de Fidelidade
+*/
+
 CREATE TABLE Fidelidade
 (
 	Codigo_Cliente int,
@@ -32,6 +42,10 @@ CREATE TABLE Fidelidade
 )
 
 
+/*
+	Criação da tabela de Forma de Pagamento
+*/
+
 CREATE TABLE Forma_Pagamento
 (
 	Codigo INT IDENTITY (1,1) NOT NULL,
@@ -41,6 +55,10 @@ CREATE TABLE Forma_Pagamento
 )
 
 
+/*
+	Criação da tabela de Marca
+*/
+
 CREATE TABLE Marca
 (
 	Codigo INT IDENTITY(1,1) NOT NULL,
@@ -49,6 +67,10 @@ CREATE TABLE Marca
 	CONSTRAINT PK_CodigoMarca PRIMARY KEY (Codigo)
 )
 
+
+/*
+	Criação da tabela de Produto
+*/
 
 CREATE TABLE Produto
 (
@@ -113,6 +135,10 @@ CREATE TABLE Pedido_Compra
 	CONSTRAINT PK_CodigoPedido_Venda PRIMARY KEY (Codigo),
 	CONSTRAINT FK_CodigoDistribuidor FOREIGN KEY (Codigo_Distribuidor) REFERENCES Distribuidor(Codigo)
 )
+
+/*
+	Criação da tabela de Pedido de Compra
+*/
 
 CREATE TABLE Item_Pedido_Compra
 (
